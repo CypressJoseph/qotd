@@ -1,24 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import QuoteMeUpButton from './features/QuoteMeUpButton';
+
+type State = {
+  quoteStatus: 'unclicked' | 'loading' | 'displaying'
+}
+class QuoteManager extends React.Component<{}, State> {
+  state: State = { quoteStatus: 'unclicked' }
+  handleClick() { this.setState({ quoteStatus: 'displaying' }) }
+
+  render() {
+    let quote = this.state.quoteStatus === 'displaying'
+              ? <div className='the-quote-itself'>"My quote here"</div>
+              : ""
+    return <>
+      <QuoteMeUpButton onClick={() => this.handleClick()} />
+      <p>Quotes</p>
+      {quote}
+    </>
+  }
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        QOTD Serivce
       </header>
+      <main className="App-main">
+        <QuoteManager />
+      </main>
+      <footer className="App-footer">
+      </footer>
     </div>
   );
 }
