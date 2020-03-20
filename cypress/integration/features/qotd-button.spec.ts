@@ -2,7 +2,7 @@
 
 context('Given I am on the homepage', () => {
   beforeEach(() => {
-    cy.visit('/qotd')
+    cy.visit('') // go home
   })
 
   describe('When I click the button', () => {
