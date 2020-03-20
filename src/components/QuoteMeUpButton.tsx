@@ -1,12 +1,16 @@
 import React from 'react';
-type Props = { onClick: Function }
+type Props = {
+  disabled?: boolean
+  onClick: Function
+}
 export default class QuoteMeUpButton extends React.Component<Props> {
   render() {
     return <button
-      className='the-quote-button'
+      disabled={!!this.props.disabled}
+      className='LoadQuoteButton btn btn-primary'
       onClick={(e) => this.props.onClick()}
     >
-      give me that quote
+      {this.props.children}
     </button>
   }
 }

@@ -1,18 +1,35 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { render, fireEvent, waitForElement } from '@testing-library/react'
+import DailyQuotes from './services/DailyQuotes';
+import QuoteManager from './components/QuoteManager';
+import axiosMock from 'axios'
+jest.mock('axios')
 
-test.skip('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('Given I visit the landing page', () => {
+  describe('When I look at the greeting', () => {
+    test('Then I see a welcoming message', () => {
+      const { getByText } = render(<App />);
+      const hello = getByText(/Good (morning|afternoon|evening)/i);
+      expect(hello).toBeInTheDocument();
+    })
+    test('Then I see the day of the week', () => {
+      const { getByText } = render(<App />);
+      const hello = getByText(/It is (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/i);
+      expect(hello).toBeInTheDocument();
+    })
+    test.todo('Then I can set an intention')
+  })
+
+  describe('When I look at the quotes', () => {
+    test('The quote exists', () => {
+      const { getByRole } = render(<App />);
+      const quoteBtn = getByRole('button');
+      expect(quoteBtn).toBeInTheDocument();
+    })
+
+
+    test.todo('The next quote exists')
+    test.todo('The previous quote exists')
+  });
 });
-
-test('quote-me-up button exists', () => {
-  const { getByText } = render(<App />);
-  const quoteBtn = getByText(/give me a quote/i);
-  expect(quoteBtn).toBeInTheDocument();
-  // expect(quoteBtn) // is a button with this text
-})
-
-test.todo('pressing quote button gives me a quote')

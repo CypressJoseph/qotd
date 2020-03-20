@@ -1,36 +1,70 @@
 import React from 'react';
-import './App.css';
-import QuoteMeUpButton from './features/QuoteMeUpButton';
+import './App.scss';
+import QuoteManager from './components/QuoteManager';
+import DailyQuotes from './services/DailyQuotes';
+import Calendar, { displayDayOfWeek } from './services/Calendar';
 
-type State = {
-  quoteStatus: 'unclicked' | 'loading' | 'displaying'
-}
-class QuoteManager extends React.Component<{}, State> {
-  state: State = { quoteStatus: 'unclicked' }
-  handleClick() { this.setState({ quoteStatus: 'displaying' }) }
+const capitalize = (letter: string) => letter.toUpperCase()
+const capitalizeFirst = (word: string) => capitalize(word[0]) + word.slice(1)
 
-  render() {
-    let quote = this.state.quoteStatus === 'displaying'
-              ? <div className='the-quote-itself'>"My quote here"</div>
-              : ""
-    return <>
-      <QuoteMeUpButton onClick={() => this.handleClick()} />
-      <p>Quotes</p>
-      {quote}
-    </>
-  }
-}
+const quoteService = new DailyQuotes(
+  process.env.REACT_APP_QOTD_URL || '[[.fill.me.in.with.QOTD_URL.envar.]]'
+)
 
-function App() {
+export function App() {
+  let user = { name: process.env.REACT_APP_USER_NAME||'joseph' }
+  const footer = "quotr is made with ❤️ at cypress.io"
+  let [dayOfWeek, timeOfDay] = Calendar.look(new Date())
+  let greeting = 
+    `Good ${timeOfDay}, ${capitalizeFirst(user.name)}.`
   return (
     <div className="App">
       <header className="App-header">
-        QOTD Serivce
+        <div className="App-logo">
+          quotr
+        </div>
+        <div className="App-menu">
+          <span>customize</span>
+          &nbsp;
+          |
+          &nbsp;
+          <span>extend</span>
+          &nbsp;
+          |
+          &nbsp;
+          <span>share</span>
+          &nbsp;
+          |
+          &nbsp;
+          <span>
+            <a href='https://github.com/CypressJoseph/qotd'>read the code</a>
+          </span>
+          &nbsp;
+          |
+          &nbsp;
+          <span>about</span>
+          &nbsp;
+          |
+          &nbsp;
+          <span>cypress dashboard</span>
+        </div>
       </header>
       <main className="App-main">
-        <QuoteManager />
+        <section className="App-spacer"></section>
+        <section className="App-spacer"></section>
+        <section className="App-greeting">
+          {greeting}
+          <br/>
+          It is {displayDayOfWeek(dayOfWeek)}.
+        </section>
+        <section className="App-spacer"></section>
+        <section className="App-quotes">
+        <QuoteManager quoteService={quoteService} />
+        </section>
+        <section className="App-spacer"></section>
       </main>
       <footer className="App-footer">
+        {footer}
       </footer>
     </div>
   );

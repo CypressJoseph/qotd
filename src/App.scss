@@ -1,0 +1,90 @@
+a {
+  color: white;
+    text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
+  }
+}
+
+.App {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans serif;
+  text-shadow: rgba(0,0,0, 0.5) 1px 1px;
+
+  text-align: center;
+  background: -webkit-linear-gradient(top, 
+    rgba(0,0,0,0.4) 0%, 
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,0.4) 100%
+  ),
+  -webkit-linear-gradient(left, 
+    rgba(0,0,0,0.4) 0%, 
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0) 70%,
+    rgba(0,0,0,0.4) 100%
+  ),
+  url("https://source.unsplash.com/1600x900/?nature,water,sky") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  min-height: 100%;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  display: flex;
+  flex-flow: row;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+  padding: 15px;
+}
+
+.App-logo {
+  font-size: 13px;
+  background-color: rgba(240,240,240, 0.2);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.App-menu {
+  padding: 14px;
+  font-size: 10px;
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: space-between;
+  font-size: 48px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-quotes {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-footer {
+  font-size: 13px;
+  padding: 15px;
+}

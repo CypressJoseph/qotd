@@ -1,0 +1,38 @@
+@import '../styles/btn.scss';
+
+.QuoteManager {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100vw;
+  min-width: 100vw;
+  align-items: center;
+  // margin-top: calc(2px + 1vmin);
+}
+
+.LoadQuoteButton {
+  outline: none;
+}
+
+.Quote {
+  background-color: rgba(20,20,20,0.35);
+  padding: calc(1px + 1vmin);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  // height: 200px;
+  // max-height: 200px;
+}
+
+.Quote-message {
+    font-size: calc(8px + 1vmin);
+    font-weight: bold;
+    flex: 2;
+}
+
+.Quote-author {
+    font-size: calc(8px + 1vmin);
+    flex: 1;
+}
+
