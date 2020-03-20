@@ -24,7 +24,10 @@ a {
     rgba(0,0,0,0) 70%,
     rgba(0,0,0,0.4) 100%
   ),
-  url("https://source.unsplash.com/1600x900/?nature,water,sky") no-repeat center center fixed; 
+  url(
+    /* "https://source.unsplash.com/1600x900/?nature,water,sky" */
+    "https://source.unsplash.com/collection/9733529/1600x900"
+  ) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
