@@ -10,12 +10,15 @@ type Props = {
 type State = {
   status: 'unclicked' | 'loading' | 'displaying'
   quote: Quote
+  quotes: Quote[]
+  index: number
 }
 
 let nullQuote: Quote = { message: 'press the button', author: 'no one' }
-let initialState: State = { status: 'unclicked', quote: nullQuote }
+let initialState: State = {
+  status: 'unclicked', quote: nullQuote, index: -1, quotes: [] }
 
-function QuoteBox(quote: Quote) {
+function QuoteBox({ quote, onNext }: { quote: Quote, onNext: Function }) {
   return <div className='Quote' role='heading'>
     <span className='Quote-message'>
       "{quote.message}"
@@ -31,17 +34,26 @@ export default class QuoteManager extends Component<Props, State> {
   async handleClick() {
     this.setState({ status: 'loading' });
     let quotes: Quote[] = await this.props.quoteService.quotes();
-    let quote = quotes[0]
+    let index = 0;
+    let quote = quotes[0];
     this.setState({
       status: 'displaying',
-      quote
+      quote,
+      quotes,
+      index
     });
+  }
+  handleNext() {
+    let { index, quotes } = this.state;
+    index = (index + 1) % quotes.length;
+    let quote = quotes[index];
+    this.setState({ quote, index })
   }
   render() {
     let quoteMeUp = this.state.status === 'displaying'
-      ? <QuoteBox {...this.state.quote} />
+      ? <QuoteBox quote={this.state.quote} onNext={()=>this.handleNext()} />
       : <QuoteMeUpButton
-        onClick={() => this.handleClick()}
+        onInspire={() => this.handleClick()}
         disabled={this.state.status !== 'unclicked'}
       >
         Inspire Me

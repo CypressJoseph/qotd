@@ -8,7 +8,8 @@ export default class DailyQuotes implements QuoteService {
     async quotes(): Promise<Quote[]> {
         const response = await axios.get(this.url)
         const data = response.data;
-        return data['contents']['quotes'].map((it: any) => { return {
+        let rawQuotes = data['contents']['quotes']
+        return rawQuotes.map((it: any) => { return {
             message: it.quote,
             author: it.author
         }})
