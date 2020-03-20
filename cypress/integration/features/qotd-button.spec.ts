@@ -7,13 +7,11 @@ context('Given I am on the homepage', () => {
 
   describe('When I click the button', () => {
       it('Then I see a quote', () => {
-          cy.get('.the-quote-itself').should('not.exist')
-          cy.get('.the-quote-button').should('exist')
-          let giveMeThatQuote = cy.get('.the-quote-button')
-
-          giveMeThatQuote.click()
-
-          cy.get('.the-quote-itself').should('exist')
+          cy.get('.Quote').should('not.exist')
+          let inspireMe = cy.get('.LoadQuoteButton')
+          inspireMe.should('exist')
+          inspireMe.click()
+          cy.get('.Quote').should('exist')
       })
   })
 });
