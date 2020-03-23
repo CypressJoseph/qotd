@@ -1,3 +1,4 @@
 {
-    "baseUrl": "https://qotd-dashboard.netlify.com"
+  "baseUrl": "https://qotd-dashboard.netlify.com",
+  "projectId": "meud3z"
 }
