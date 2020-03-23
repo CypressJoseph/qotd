@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App';
 import { render, fireEvent, waitForElement } from '@testing-library/react'
-import DailyQuotes from './services/DailyQuotes';
+import { DailyQuotes } from './services/DailyQuotes';
 import QuoteManager from './components/QuoteManager';
 import axiosMock from 'axios'
 jest.mock('axios')

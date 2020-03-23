@@ -1,4 +1,6 @@
 {
-  "baseUrl": "https://qotd-dashboard.netlify.com",
+  "baseUrl": "http://localhost:3000",
+  "viewportWidth": 720,
+  "viewportHeight": 1380,
   "projectId": "meud3z"
 }

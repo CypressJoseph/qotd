@@ -1,8 +1,8 @@
 import assertNever from "assert-never";
 
-type DayOfWeek = 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
-type PartOfDay = 'morning' | 'afternoon' | 'evening'
-type Moment = [DayOfWeek, PartOfDay]
+export type DayOfWeek = 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
+export type PartOfDay = 'morning' | 'afternoon' | 'evening'
+export type Moment = [DayOfWeek, PartOfDay]
 
 export const displayDayOfWeek: (day: DayOfWeek) => string = day => {
   switch(day) {

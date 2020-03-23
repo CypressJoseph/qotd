@@ -3,7 +3,7 @@ import { render, fireEvent, waitForElement } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import App from '../App';
 import QuoteManager from './QuoteManager';
-import DailyQuotes from '../services/DailyQuotes';
+import { DailyQuotes } from '../services/DailyQuotes';
 import axiosMock from 'axios'
 jest.mock('axios')
 

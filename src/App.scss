@@ -68,10 +68,13 @@ a {
   flex-direction: column;
   justify-content: space-between;
   justify-items: space-between;
-  font-size: 48px;
-  font-weight: bold;
   flex-grow: 1;
+  width: 50vw;
+  align-self: center;
+  // whitespace: nowrap;
 }
+
+
 
 section {
   flex: 1;
@@ -91,3 +94,37 @@ section {
   font-size: 13px;
   padding: 15px;
 }
+
+.App-greeting {
+  white-space: nowrap;
+}
+
+.Hero {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Text {
+  background: linear-gradient(to right, #fff, #eee) 5px calc(100% + 0px)/calc(100% - 15px) 5px no-repeat;
+  // background-image: linear-gradient(to right, #000, #000);
+  // background-position: 5px calc(100% - 5px);
+  // background-size: calc(100% - 10px) 2px;
+  // background-repeat: no-repeat;
+  // background-color: none;
+
+  padding: 10px;
+  outline: 0;
+  border-width: 0 0;
+  border-color: none; //rgba(240,240,240, 0.8);
+  width: 200px;
+  height: 8vh;
+  text-shadow: rgba(0,0,0, 0.5) 1px 1px;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: -14px;
+  margin-left: 5px;
+}
+
+.username-span { margin-left: 12px }
