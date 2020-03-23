@@ -12,7 +12,8 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn test
-      - cypress/run
+      - cypress/run:
+        record: true
 workflows:
     build-and-test:
       jobs:
