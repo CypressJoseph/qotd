@@ -4,24 +4,25 @@ import { DailyQuotes } from './services/DailyQuotes';
 import Calendar from './services/Calendar';
 import Quotr from "./Quotr";
 import userDb from './services/User';
+import { CurrentConditions } from './services/Weather';
 
 const quoteService = new DailyQuotes(
-  process.env.REACT_APP_QOTD_URL || '[[.fill.me.in.with.QOTD_URL.envar.]]'
+  process.env.REACT_APP_QOTD_URL || '[[fill in with REACT_APP_QOTD_URL]]'
 )
 
+const weatherService = new CurrentConditions(
+  process.env.REACT_APP_BACKEND_URL || '[[ fill in with REACT_APP_BACKEND_URL ]]',
+)
 
 export function App() {
-  // const [username, setUsername] = useState("user");
-  // let user = { name: process.env.REACT_APP_USER_NAME || 'joseph' }
   const footer = "quotr is made with ❤️ at cypress.io"
   let [dayOfWeek, partOfDay] = Calendar.look(new Date())
-  // let username = capitalizeFirst(user.name);
   return (
     <Quotr
-      // username={capitalizeFirst(userDb.get().name)}
       partOfDay={partOfDay}
       dayOfWeek={dayOfWeek}
       quoteService={quoteService}
+      weatherService={weatherService}
       footer={<i>{footer}</i>}
     />
   );

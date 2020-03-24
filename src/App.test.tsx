@@ -15,8 +15,13 @@ describe('Given I visit the landing page', () => {
     })
     test('Then I see the day of the week', () => {
       const { getByText } = render(<App />);
-      const hello = getByText(/It is (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/i);
-      expect(hello).toBeInTheDocument();
+      const dayReminder = getByText(/(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/i);
+      expect(dayReminder).toBeInTheDocument();
+    })
+    test.skip('Then I see the weather', () => {
+      const { getByText } = render(<App />);
+      const conditions = getByText(/It is beautiful outside./i);
+      expect(conditions).toBeInTheDocument();
     })
     test.todo('Then I can set an intention')
   })
