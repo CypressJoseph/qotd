@@ -20,7 +20,7 @@ context('Given I am on the homepage', () => {
               name.should('exist')
               name.click()
               cy.get('.Username').should('exist')
-              cy.get('.Username').type('david').blur()
+              cy.get('.Username').clear().type('david').blur()
               cy.get('.App-greeting').invoke('text').should('match',
                 /Good (morning|afternoon|evening), David./
               )

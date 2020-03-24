@@ -6,7 +6,6 @@ import Main from "./Main";
 import userDb, { User } from "./services/User";
 
 type Props = {
-    // username: string,
     dayOfWeek: DayOfWeek,
     partOfDay: PartOfDay,
     quoteService: QuoteService,
@@ -21,12 +20,9 @@ function Quotr({ partOfDay, dayOfWeek, quoteService, footer }: Props) {
             dayOfWeek={dayOfWeek}
             quoteService={quoteService}
             editable={showInput}
-            makeEditable={()=>setShowInput(true)}
+            makeEditable={(b: boolean) => setShowInput(b)}
             partOfDay={partOfDay}
-            onSetUsername={(username: string) => {
-                setShowInput(false)
-                userDb.set(new User(username))
-            }}
+            onSetUsername={(username: string) => userDb.set(new User(username))}
         />
         <footer className="App-footer">
             {footer}
