@@ -36,6 +36,11 @@ function Main({
         <><b>Compassion</b> is the way.</>,
         <>Keep <b>moving forward</b>.</>,
         <>You're <b>doing great</b>.</>,
+        <>Everything is <b>fine</b>.</>,
+        <><b>Deep breath</b>.</>,
+        <>I am calm.</>,
+        <>I am at peace.</>,
+        <>I am focused.</>,
     ]
     let [pithIndex, setPithIndex] = useState(
         1 + Math.floor(Math.random() * pithy.length - 1)
@@ -87,9 +92,8 @@ function Main({
         <section className="App-notes">
           <li className="App-note">
             <p>Today is <b>{dailyIntention}</b>.</p>
-            {/* <p>There are no holidays.</p> */}
           </li>
-          <li className="App-note">
+          <li className="App-note App-note-weather">
             <p>It's currently <b>{currentConditions}</b> outside.</p>
           </li>
           <li className="App-note">
