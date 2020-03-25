@@ -12,9 +12,9 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn test
-      - cypress/run:
-          yarn: true
-          record: true
+      # - cypress/run:
+      #     yarn: true
+      #     record: true
 workflows:
     build-and-test:
       jobs:
