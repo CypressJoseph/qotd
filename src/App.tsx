@@ -16,6 +16,7 @@ const weatherService = new CurrentConditions(
 export function App() {
   const footer = "quotr is made with ❤️ at cypress.io"
   let [dayOfWeek, partOfDay] = Calendar.look(new Date())
+
   return (
     <Quotr
       partOfDay={partOfDay}

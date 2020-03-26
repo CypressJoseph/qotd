@@ -1,7 +1,7 @@
 import assertNever from "assert-never";
 
 export type DayOfWeek = 'sun' | 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat'
-export type PartOfDay = 'morning' | 'afternoon' | 'evening'
+export type PartOfDay = 'morning' | 'afternoon' | 'evening' | 'night'
 export type Moment = [DayOfWeek, PartOfDay]
 
 export const displayDayOfWeek: (day: DayOfWeek) => string = day => {
@@ -45,7 +45,8 @@ export default class Calendar {
     let date = new Date();
     let hour = date.getHours()
     if (hour > 3 && hour < 12) { return 'morning' }
-    else if (hour > 12 && hour < 23) { return 'afternoon' }
-    else { return 'evening' }
+    else if (hour >= 12 && hour < 17) { return 'afternoon' }
+    else if (hour >= 17 && hour < 22) { return 'evening' }
+    else { return 'night' }
   }
 }

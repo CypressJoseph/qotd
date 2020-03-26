@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React, { useState, useCallback, useEffect } from "react";
 import { QuoteService } from "./services/DailyQuotes";
 import { DayOfWeek, PartOfDay, displayDayOfWeek } from "./services/Calendar";
@@ -79,7 +80,7 @@ let pithy = [
         lookupWeather();
     }, [ weatherService ]);
   
-    return (<div className="Quotr App">
+    return (<div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
         <Main>
             <>
                 <Hero size={isExpanded ? 'medium' : 'large'}>

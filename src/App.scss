@@ -1,17 +1,4 @@
-a {
-  color: white;
-    text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-    transform: scale(1.2);
-  }
-}
-
-.App {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans serif;
-  text-shadow: rgba(0,0,0, 0.5) 1px 1px;
-
-  text-align: center;
+@mixin withBackground($collectionId) {
   background: -webkit-linear-gradient(top, 
     rgba(0,0,0,0.4) 0%, 
     rgba(0,0,0,0) 30%,
@@ -25,19 +12,38 @@ a {
     rgba(0,0,0,0.4) 100%
   ),
   url(
-    "https://source.unsplash.com/collection/9733529/1600x900"
+    "https://source.unsplash.com/collection/" + $collectionId + "/1600x900"
   ) no-repeat center center fixed; 
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
+  }
+}
+
+.App {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans serif;
+  text-shadow: rgba(0,0,0, 0.5) 1px 1px;
+  text-align: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
   min-height: 100%;
-
   color: white;
   display: flex;
   flex-direction: column;
 }
+
+.App-morning { @include withBackground(9770536) }
+.App-afternoon { @include withBackground(9770537) }
+.App-evening { @include withBackground(9770541) }
+.App-night { @include withBackground(9770539) }
 
 .App-header {
   display: flex;
@@ -75,7 +81,7 @@ a {
   height: 100%;
 }
 
-$hero-font-size: 44px;
+$hero-font-size: 45px;
 .App-hero {
   flex: 2;
   font-size: $hero-font-size;
