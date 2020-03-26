@@ -6,4 +6,4 @@ circle [![CircleCI](https://circleci.com/gh/CypressJoseph/qotd.svg?style=svg)](<
 
 ## Synopsis
 
-`qotd` is a tiny frontend application that serves a friendly, daily dashboard, which reminds you of the current day of the week and offers an inspiring quote. It interacts with several APIs (a quote-of-the-day service, the unsplash source API) and is intended to be a tiny reference application for end-to-end testing with Cypress.
+`qotd` is a tiny frontend application that serves a friendly, daily dashboard, which reminds you of the current day of the week and offers an inspiring quote. It interacts with several APIs (a quote-of-the-day service, the unsplash source API, the dark sky weather api and geolocation) and is intended to be a tiny reference application for end-to-end testing with Cypress.

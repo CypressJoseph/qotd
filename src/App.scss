@@ -116,28 +116,6 @@ $hero-size-factor: 22px;
 
 .username-span { margin-left: 12px }
 
-.Grow { animation: 2s linear grow forwards; }
-.MoveNorth { animation: 2s linear north forwards; }
-.Shrink { animation: 2s linear shrink forwards; }
-.FadeIn { animation: 2s linear fadeIn forwards; }
-
-@keyframes north { to { transform: translateY(-40) }}
-
-@keyframes fadeIn {
-  from { transform: opacity(0.0) }
-  to { transform: opacity(1.0) }
-}
-
-@keyframes shrink {
-  from { transform: scale(1.0) }
-  to { transform: scale(0.8) }
-}
-
-@keyframes grow {
-  from { transform: scale(0.8) }
-  to { transform: scale(1.0) }
-}
-
 .Notes {
   background: rgba(0,0,0,0.4);
   margin-bottom: 128px;

@@ -19,6 +19,7 @@ export function App() {
 
   return (
     <Quotr
+      startExpanded
       partOfDay={partOfDay}
       dayOfWeek={dayOfWeek}
       quoteService={quoteService}

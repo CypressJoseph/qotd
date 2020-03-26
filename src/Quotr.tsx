@@ -16,12 +16,12 @@ type Props = {
     quoteService: QuoteService,
     weatherService: WeatherService,
     footer: React.ReactElement,
+    startExpanded: boolean,
 }
 
-
-function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer }: Props) {
+function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer, startExpanded }: Props) {
     const [showInput, setShowInput] = useState(false);
-    const [isExpanded, unfold] = useState(false)
+    const [isExpanded, unfold] = useState(startExpanded);
 
     const handleUserKeyPress = useCallback(event => {
         const { key, keyCode } = event;
