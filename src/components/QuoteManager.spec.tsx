@@ -26,6 +26,6 @@ test('quote-me-up button works', async () => {
     const greetingTextNode = await waitForElement(() => getByRole('heading'))
     expect(axiosMock.get).toHaveBeenCalledTimes(1)
     expect(axiosMock.get).toHaveBeenCalledWith(url)
-    expect(getByRole('heading')).toHaveTextContent('"hello there"-nohbdy')
+    expect(getByRole('heading')).toHaveTextContent('"hello there" -nohbdy')
     expect(loadQuote).not.toBeInTheDocument() //toHaveAttribute('disabled')
 })

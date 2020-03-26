@@ -20,34 +20,25 @@ type Props = {
 function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer }: Props) {
     const [showInput, setShowInput] = useState(false);
     const [isExpanded, unfold] = useState(false)
-    // const [userName] = useState(userDb.get().name || 'user');
 
     const handleUserKeyPress = useCallback(event => {
-      const { key, keyCode } = event;
-
-      if (key === 'Enter') {
-          console.log("ENTER")
-          unfold(true);
-      }
-        if (keyCode === 27) {
-          console.log("ESCAPE")
-          unfold(false);
-      }
+        const { key, keyCode } = event;
+        if (key === 'Enter') { unfold(true); }
+        if (keyCode === 27) { unfold(false); }
     }, []);
-  
+
     useEffect(() => {
-      window.addEventListener('keydown', handleUserKeyPress);
-  
-      return () => {
-        window.removeEventListener('keydown', handleUserKeyPress);
-      };
+        window.addEventListener('keydown', handleUserKeyPress);
+        return () => {
+            window.removeEventListener('keydown', handleUserKeyPress);
+        };
     }, [handleUserKeyPress]);
 
-   let [user, setUser] = useState(userDb.get() || new User('unknown'))
-   const updateUser = (user: User) => {
-       setUser(user);
-       userDb.set(user);
-   }
+    let [user, setUser] = useState(userDb.get() || new User('unknown'))
+    const updateUser = (user: User) => {
+        setUser(user);
+        userDb.set(user);
+    }
 
    let username = <Username
                         user={user}
