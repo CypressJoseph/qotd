@@ -12,14 +12,6 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn test
-  verify-e2e:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: yarn install
 workflows:
     build-and-verify:
       jobs:
