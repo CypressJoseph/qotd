@@ -19,7 +19,8 @@ function QuoteBox({ quote }: { quote: Quote }) {
   return <div className='Quote' role='heading'>
     <span className='Quote-message'>
       "{quote.message}"
-        </span>
+    </span>
+    &nbsp;
     <span className='Quote-author'>
       -{quote.author}
     </span>

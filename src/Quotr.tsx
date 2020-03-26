@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { QuoteService } from "./services/DailyQuotes";
-import { DayOfWeek, PartOfDay } from "./services/Calendar";
+import { DayOfWeek, PartOfDay, displayDayOfWeek } from "./services/Calendar";
 import { Main} from "./Main";
 import userDb, { User } from "./services/User";
 import { WeatherService } from "./services/Weather";
@@ -95,9 +95,9 @@ let pithy = [
                     <span className="App-greeting">Good {partOfDay}, {username}.</span>
                 </Hero>
                 {isExpanded && <>
-                    <Hero size='small'>
+                    <Hero size='small' className='Notes'>
                         <>
-                          <span>Today is <b>{dayOfWeek}</b>.</span>
+                          <span>Today is <b>{displayDayOfWeek(dayOfWeek)}</b>.</span>
                           <span className='App-note-weather'>It's currently <b>{currentConditions}</b> outside.</span>
                           <span>{pithy[pithIndex]}</span>
                         </>

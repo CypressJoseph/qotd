@@ -3,8 +3,10 @@
 context('Given I am on the homepage', () => {
   beforeEach(() => {
     cy.visit('') // go home
-    cy.get('body').trigger('keydown', { key: 'Enter' })
+    cy.get('body').trigger('keydown', { key: 'Enter', force: true })
   })
+
+  it.skip('Then I see the day of the week')
 
   describe('When I click my name', () => {
       it('Then I see a text field for my name', () => {

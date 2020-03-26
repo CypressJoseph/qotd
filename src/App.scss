@@ -75,7 +75,7 @@ a {
   height: 100%;
 }
 
-$hero-font-size: 48px;
+$hero-font-size: 44px;
 .App-hero {
   flex: 2;
   font-size: $hero-font-size;
@@ -90,7 +90,7 @@ $hero-font-size: 48px;
   justify-items: center;
   justify-content: center;
 }
-$hero-size-factor: 28px;
+$hero-size-factor: 22px;
 .App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor; }
 .App-hero-small { flex: 1; font-size: $hero-font-size - $hero-size-factor; font-weight: normal; }
 .App-input {
@@ -131,3 +131,11 @@ $hero-size-factor: 28px;
   from { transform: scale(0.8) }
   to { transform: scale(1.0) }
 }
+
+.Notes {
+  background: rgba(0,0,0,0.4);
+  margin-bottom: 128px;
+  line-height: 42px;
+}
+
+.App-footer { padding: 12px }
