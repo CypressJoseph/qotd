@@ -17,5 +17,5 @@ workflows:
     jobs:
       # - build-and-test
       - cypress/run:
-        yarn: true
-        start: 'yarn start'
+          yarn: true
+          start: 'yarn start'
