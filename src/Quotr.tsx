@@ -6,8 +6,9 @@ import { Main} from "./Main";
 import userDb, { User } from "./services/User";
 import { WeatherService } from "./services/Weather";
 import { Username } from "./Username";
-import { Hero } from "./Hero";
+import Hero from "./Hero";
 import QuoteManager from "./components/QuoteManager";
+import { useSpring, animated } from "react-spring";
 
 type Props = {
     dayOfWeek: DayOfWeek,
@@ -20,7 +21,7 @@ type Props = {
 
 function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer }: Props) {
     const [showInput, setShowInput] = useState(false);
-    const [isExpanded, unfold] = useState(true)
+    const [isExpanded, unfold] = useState(false)
 
     const handleUserKeyPress = useCallback(event => {
         const { key, keyCode } = event;
@@ -79,17 +80,24 @@ let pithy = [
 
         lookupWeather();
     }, [ weatherService ]);
+    const fadeIn = useSpring({
+        opacity: 1,
+        from: { opacity: 0 },
+        config: { duration: 500}
+      })
   
     return (<div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
         <Main>
             <>
                 <Hero size={isExpanded ? 'medium' : 'large'}>
-                    <span className="App-greeting">Good {partOfDay}, {username}.</span>
+                    <animated.span style={fadeIn} className="App-greeting">
+                        Good {partOfDay}, {username}.
+                    </animated.span>
                 </Hero>
                 {isExpanded && <>
                     <Hero size='small' className='Notes'>
                         <>
-                          <span>Today is <b>{displayDayOfWeek(dayOfWeek)}</b>.</span>
+                          <span data-test-id="day-reminder">It is <b>{displayDayOfWeek(dayOfWeek)}</b>.</span>
                           <span className='App-note-weather'>It's currently <b>{currentConditions}</b> outside.</span>
                           <span>{pithy[pithIndex]}</span>
                         </>
@@ -102,4 +110,4 @@ let pithy = [
     </div>);
 }
 
-export default Quotr;
+export default (Quotr);

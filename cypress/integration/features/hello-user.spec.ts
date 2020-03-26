@@ -6,8 +6,6 @@ context('Given I am on the homepage', () => {
     cy.get('body').trigger('keydown', { key: 'Enter', force: true })
   })
 
-  it.skip('Then I see the day of the week')
-
   describe('When I click my name', () => {
       it('Then I see a text field for my name', () => {
           cy.get('.Username').should('not.exist')
