@@ -20,11 +20,8 @@ jobs:
       - node/with-cache:
           steps:
             - run: yarn install
-      - cypress/run:
-          yarn: true
-          record: true
 workflows:
     build-and-verify:
       jobs:
         - build-and-test
-        - verify-e2e
+        - cypress/run
