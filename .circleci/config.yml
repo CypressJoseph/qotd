@@ -27,3 +27,4 @@ workflows:
     build-and-verify:
       jobs:
         - build-and-test
+        - verify-e2e
