@@ -13,8 +13,8 @@ jobs:
             - run: yarn install
             - run: yarn test
 workflows:
-    build-and-verify:
-      jobs:
-        - build-and-test
-        - cypress/run:
-          start: yarn start
+  build-and-verify:
+    jobs:
+      - build-and-test
+      - cypress/run:
+        start: 'yarn start'
