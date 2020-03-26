@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 import { DailyQuotes } from './services/DailyQuotes';
 import Calendar from './services/Calendar';
 import Quotr from "./Quotr";
-import userDb from './services/User';
 import { CurrentConditions } from './services/Weather';
 
 const quoteService = new DailyQuotes(
@@ -18,7 +17,7 @@ export function App() {
   const footer = "quotr is made with ❤️ at cypress.io"
   let [dayOfWeek, partOfDay] = Calendar.look(new Date())
   return (
-    <Quotr
+      <Quotr
       partOfDay={partOfDay}
       dayOfWeek={dayOfWeek}
       quoteService={quoteService}

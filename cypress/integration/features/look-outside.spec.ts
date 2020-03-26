@@ -11,6 +11,7 @@ context('Given I am on the home page', () => {
             { summary: 'charming' }
         ).as('getWeather')
         cy.visit('', france)
+        cy.get('body').trigger('keydown', { key: 'Enter' })
     })
     describe('When I look at the home page', () => {
         it('Then I see the current weather conditions', () => {

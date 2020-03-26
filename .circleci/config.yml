@@ -12,10 +12,18 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn test
-      # - cypress/run:
-      #     yarn: true
-      #     record: true
+  verify-e2e:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+      - cypress/run:
+          yarn: true
+          record: true
 workflows:
-    build-and-test:
+    build-and-verify:
       jobs:
         - build-and-test
