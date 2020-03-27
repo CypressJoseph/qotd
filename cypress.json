@@ -2,5 +2,6 @@
   "baseUrl": "http://localhost:3000",
   "viewportWidth": 720,
   "viewportHeight": 1380,
-  "projectId": "meud3z"
+  "projectId": "meud3z",
+  "requestTimeout": 15000
 }
