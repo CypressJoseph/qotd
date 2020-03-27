@@ -3,6 +3,7 @@
 buildkite [![Build status](https://badge.buildkite.com/bd5a1ccb1b4aef4f0a4ce5ca9f940dae083c4120a2c323fb24.svg)](https://buildkite.com/cy-joe/quotr)
 netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/f58b2fad-24d7-424a-87fb-82a3180f3af7/deploy-status)](https://app.netlify.com/sites/qotd-dashboard/deploys) 
 circle [![CircleCI](https://circleci.com/gh/CypressJoseph/qotd.svg?style=svg)](<https://circleci.com/gh/CypressJoseph/qotd>)
+[Cypress Dashboard](https://dashboard.cypress.io/projects/meud3z/runs)
 
 ## Synopsis
 
