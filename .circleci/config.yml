@@ -19,4 +19,4 @@ workflows:
       - cypress/run:
           yarn: true
           start: 'yarn start'
-          record: true
+          record: false
