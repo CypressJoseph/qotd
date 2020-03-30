@@ -17,7 +17,7 @@ context('Given I am on the homepage', () => {
   })
 
   describe('When I click the button', () => {
-      it('Then I see a quote', () => {
+      it.skip('Then I see a quote', () => {
           cy.get('.Quote').should('not.exist')
           let inspireMe = cy.get('.LoadQuoteButton')
           inspireMe.should('exist')
