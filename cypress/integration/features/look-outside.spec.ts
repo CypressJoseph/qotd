@@ -14,7 +14,7 @@ context('Given I am on the home page', () => {
         cy.get('body').trigger('keydown', { key: 'Enter', force: true })
     })
     describe('When I look at the home page', () => {
-        it.skip('Then I see the current weather conditions', () => {
+        it('Then I see the current weather conditions', () => {
             cy.wait('@getWeather').then(() => {
                 cy.get('.App-note-weather')
                     .should('exist')

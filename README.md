@@ -8,7 +8,7 @@ circle [![CircleCI](https://circleci.com/gh/CypressJoseph/qotd.svg?style=svg)](<
 
 travis [![Travis](https://travis-ci.com/CypressJoseph/qotd.svg?branch=master&status=created)](<https://travis-ci.com/github/CypressJoseph/qotd>)
 
-[Cypress Dashboard](https://dashboard.cypress.io/projects/meud3z/runs)
+cypress [![Cypress Dashboard](https://img.shields.io/badge/cypress-dashboard-green)](https://dashboard.cypress.io/projects/meud3z/runs)
 
 ## Synopsis
 
