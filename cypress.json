@@ -3,5 +3,5 @@
   "viewportWidth": 720,
   "viewportHeight": 1380,
   "projectId": "meud3z",
-  "requestTimeout": 45000
+  "requestTimeout": 25000
 }
