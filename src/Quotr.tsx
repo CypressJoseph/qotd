@@ -89,9 +89,10 @@ let pithy = [
     return (<div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
         <Main>
             <>
+                <p style={{color: 'black'}}>hi</p>
                 <Hero size={isExpanded ? 'medium' : 'large'}>
                     <animated.span style={fadeIn} className="App-greeting">
-                        Good {partOfDay}, {username}.
+                        Good {partOfDay},{username}.
                     </animated.span>
                 </Hero>
                 {isExpanded && <>

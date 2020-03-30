@@ -14,6 +14,11 @@
   url(
     "https://source.unsplash.com/collection/" + $collectionId + "/1600x900"
   ) no-repeat center center fixed; 
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {
@@ -29,12 +34,10 @@ a {
   font-family: "Helvetica Neue",Helvetica,Arial,sans serif;
   text-shadow: rgba(0,0,0, 0.5) 1px 1px;
   text-align: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 100vh;
-  min-height: 100%;
+  // min-height: 100%;
+  // min-width: 100%;
+  margin: 0 auto;
   color: white;
   display: flex;
   flex-direction: column;
@@ -52,21 +55,21 @@ a {
   padding: 15px;
 }
 
-.App-logo {
-  font-size: 13px;
-  background-color: rgba(240,240,240, 0.2);
-  border-radius: 12px;
-  padding: 12px;
-}
+// .App-logo {
+//   font-size: 12px;
+//   background-color: rgba(240,240,240, 0.2);
+//   border-radius: 12px;
+//   padding: 12px;
+// }
 
-.App-menu {
-  padding: 14px;
-  font-size: 10px;
-  min-width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: space-between;
-}
+// .App-menu {
+//   padding: 14px;
+//   font-size: 10px;
+//   min-width: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: space-between;
+// }
 
 .App-main {
   display: flex;
@@ -76,12 +79,14 @@ a {
   flex-grow: 1;
   width: 50vw;
   align-self: center;
-  font-size: 28px;
+  // font-size: 28px;
   width: 100%;
-  height: 100%;
+  // flex: 1;
+  align-items: center;
+  // height: 100%;
 }
 
-$hero-font-size: 45px;
+$hero-font-size: 36px;
 .App-hero {
   flex: 2;
   font-size: $hero-font-size;
@@ -96,9 +101,9 @@ $hero-font-size: 45px;
   justify-items: center;
   justify-content: center;
 }
-$hero-size-factor: 22px;
-.App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor; }
-.App-hero-small { flex: 1; font-size: $hero-font-size - $hero-size-factor; font-weight: normal; }
+$hero-size-factor: 4px;
+.App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor*6; }
+.App-hero-small { flex: 1; font-size: $hero-font-size - $hero-size-factor*4; font-weight: normal; }
 .App-input {
   background: linear-gradient(to right, #fff, #eee) 5px calc(100% + 0px)/calc(100% - 15px) 5px no-repeat;
   padding: 10px;
@@ -122,4 +127,4 @@ $hero-size-factor: 22px;
   line-height: 42px;
 }
 
-.App-footer { padding: 12px }
+.App-footer { font-size: calc(6px + 1vmin); padding: 12px }
