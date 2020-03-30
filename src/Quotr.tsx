@@ -10,7 +10,7 @@ import Hero from "./Hero";
 import QuoteManager from "./components/QuoteManager";
 import { useSpring, animated } from "react-spring";
 
-type Props = {
+type QuotrProps = {
     dayOfWeek: DayOfWeek,
     partOfDay: PartOfDay,
     quoteService: QuoteService,
@@ -19,7 +19,37 @@ type Props = {
     startExpanded: boolean,
 }
 
-function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer, startExpanded }: Props) {
+function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer, startExpanded }: QuotrProps) {
+    return <div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
+        <Main><>
+            <Hero size='large'><>Hello there!</></Hero>
+            <Hero size='small'><>Good afternoon!</></Hero>
+            <QuoteManager quoteService={quoteService} />
+            {/* <QuotrImpl
+                partOfDay={partOfDay}
+                dayOfWeek={dayOfWeek}
+                quoteService={quoteService}
+                weatherService={weatherService}
+                startExpanded={startExpanded}
+            /> */}
+        </></Main>
+        <footer className="App-footer">
+            {footer}
+            <br/>
+            <p style={{ color: 'black' }}>quotr v0.0.1-alpaca-afternoon</p>
+        </footer>
+    </div>
+}
+
+type QuotrImplProps = {
+    dayOfWeek: DayOfWeek,
+    partOfDay: PartOfDay,
+    quoteService: QuoteService,
+    weatherService: WeatherService,
+    startExpanded: boolean,
+}
+
+function QuotrImpl({ partOfDay, dayOfWeek, quoteService, weatherService, startExpanded }: QuotrImplProps) {
     const [showInput, setShowInput] = useState(false);
     const [isExpanded, unfold] = useState(startExpanded);
 
@@ -86,29 +116,24 @@ let pithy = [
         config: { duration: 500}
       })
   
-    return (<div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
-        <Main>
-            <>
-                <p style={{color: 'black'}}>hi</p>
-                <Hero size={isExpanded ? 'medium' : 'large'}>
-                    <animated.span style={fadeIn} className="App-greeting">
-                        Good {partOfDay}, {username}.
+    return (<>
+        <p style={{ color: 'black' }}>hi</p>
+        <Hero size={isExpanded ? 'medium' : 'large'}>
+            <animated.span style={fadeIn} className="App-greeting">
+                Good {partOfDay},{username}.
                     </animated.span>
-                </Hero>
-                {isExpanded && <>
-                    <Hero size='small' className='Notes'>
-                        <>
-                          <span data-test-id="day-reminder">It is <b>{displayDayOfWeek(dayOfWeek)}</b>.</span>
-                          <span className='App-note-weather'>It's currently <b>{currentConditions}</b> outside.</span>
-                          <span>{pithy[pithIndex]}</span>
-                        </>
-                    </Hero>
-                    <QuoteManager quoteService={quoteService} />
-                </>}
-            </>
-        </Main>
-        <footer className="App-footer">{footer}</footer>
-    </div>);
+        </Hero>
+        {isExpanded && <>
+            <Hero size='small' className='Notes'>
+                <>
+                    <span data-test-id="day-reminder">It is <b>{displayDayOfWeek(dayOfWeek)}</b>.</span>
+                    <span className='App-note-weather'>It's currently <b>{currentConditions}</b> outside.</span>
+                    <span>{pithy[pithIndex]}</span>
+                </>
+            </Hero>
+            <QuoteManager quoteService={quoteService} />
+        </>}
+    </>);
 }
 
 export default (Quotr);

@@ -22,9 +22,9 @@ context('Given I am on the homepage', () => {
               name.click()
               cy.get('.Username').should('exist')
               cy.get('.Username').clear().type('david').blur()
-              cy.get('.App-greeting').invoke('text').should('match',
-                /Good (morning|afternoon|evening), David./
-              )
+              cy.get('.App-greeting').invoke('text')
+                .should('match', /Good (morning|afternoon|evening)/)
+                .should('match', /David/)
           })
           it('When I press return, then I see my name in the greeting', () => {
               let name = cy.get('.username-span')
@@ -32,9 +32,9 @@ context('Given I am on the homepage', () => {
               name.click()
               cy.get('.Username').should('exist')
               cy.get('.Username').clear().type('david{enter}')
-              cy.get('.App-greeting').invoke('text').should('match',
-                /Good (morning|afternoon|evening), David./
-              )
+              cy.get('.App-greeting').invoke('text')
+                .should('match', /Good (morning|afternoon|evening)/)
+                .should('match', /David/)
           })
       })
   })
