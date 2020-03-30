@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
-import { DailyQuotes } from './services/DailyQuotes';
 import Calendar from './services/Calendar';
 import Quotr from "./Quotr";
 import { CurrentConditions } from './services/Weather';
+import { DailyQuotes } from './services/DailyQuotes';
 
 const quoteService = new DailyQuotes(
   process.env.REACT_APP_QOTD_URL || '[[fill in with REACT_APP_QOTD_URL]]'
