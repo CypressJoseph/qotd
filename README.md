@@ -6,6 +6,8 @@ netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/f58b2fad-24d7-4
 
 circle [![CircleCI](https://circleci.com/gh/CypressJoseph/qotd.svg?style=svg)](<https://circleci.com/gh/CypressJoseph/qotd>)
 
+travis [![Travis](https://travis-ci.com/CypressJoseph/qotd.svg?branch=master&status=created)](<https://travis-ci.com/github/CypressJoseph/qotd>)
+
 [Cypress Dashboard](https://dashboard.cypress.io/projects/meud3z/runs)
 
 ## Synopsis
