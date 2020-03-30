@@ -14,3 +14,11 @@ Netlify [![Netlify Deployment Status](https://api.netlify.com/api/v1/badges/f58b
 ## Synopsis
 
 `qotd` is a tiny frontend application that serves a friendly, daily dashboard, which reminds you of the current day of the week and offers an inspiring quote. It interacts with several APIs (a quote-of-the-day service, the unsplash source API, the dark sky weather api and geolocation) and is intended to be a tiny reference application for end-to-end testing with Cypress.
+
+## Testing
+
+We have a little test harness in Jest but mostly we are tested with Cypress. Example configuration for both circle and travis is provided.
+
+## Deployment
+
+Netlify is our deployment system, and runs on every commit, but it checks the cypress suite is passing before deploying to production.
