@@ -2,20 +2,20 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
   cypress: cypress-io/cypress@1
-# jobs:
-#   build-and-test:
-#     executor:
-#       name: node/default
-#     steps:
-#       - checkout
-#       - node/with-cache:
-#           steps:
-#             - run: yarn install
-#             - run: yarn test
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn install
+            - run: yarn test
 workflows:
   build:
     jobs:
-      # - build-and-test
+      - build-and-test
       - cypress/run:
           yarn: true
           start: 'yarn start'
