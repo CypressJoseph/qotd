@@ -4,7 +4,7 @@ export interface WeatherService {
     lookOutside(lat: number, lon: number): Promise<Weather>
 }
 
-export class CurrentConditions implements WeatherService {
+export default class CurrentConditions implements WeatherService {
     constructor(
         private baseUrl: string,
         // private apiKey: string

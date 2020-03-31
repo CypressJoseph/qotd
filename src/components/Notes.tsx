@@ -4,7 +4,7 @@ import { DayOfWeek, displayDayOfWeek } from "../services/Calendar";
 import { WeatherService } from "../services/Weather";
 import { QuoteService, Quote } from "../services/DailyQuotes";
 import Hero from "./Hero";
-import { AnimatedList } from "react-animated-list";
+// import { AnimatedList } from "react-animated-list";
 
 type NoteProps = {
     intent: string,
@@ -156,17 +156,17 @@ export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
                 >
                     {pithy[pithIndex]}
                 </Note>
-                <AnimatedList
+                {/* <AnimatedList
                     animation={"grow"}
                     initialAnimationDuration={2000}
-                >
+                > */}
                     {notes.map(note => <Note
                         key={note.id}
                         onClick={() => setNotes(notesWithout(note))}
                         intent={note.intent}>
                         {note.message}
                     </Note>)}
-                </AnimatedList>
+                {/* </AnimatedList> */}
 
             </>
         </Hero>
