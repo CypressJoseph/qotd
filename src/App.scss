@@ -35,8 +35,6 @@ a {
   text-shadow: rgba(0,0,0, 0.5) 1px 1px;
   text-align: center;
   height: 100vh;
-  // min-height: 100%;
-  // min-width: 100%;
   margin: 0 auto;
   color: white;
   display: flex;
@@ -55,22 +53,6 @@ a {
   padding: 15px;
 }
 
-// .App-logo {
-//   font-size: 12px;
-//   background-color: rgba(240,240,240, 0.2);
-//   border-radius: 12px;
-//   padding: 12px;
-// }
-
-// .App-menu {
-//   padding: 14px;
-//   font-size: 10px;
-//   min-width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: space-between;
-// }
-
 .App-main {
   display: flex;
   flex-direction: column;
@@ -79,16 +61,13 @@ a {
   flex-grow: 1;
   width: 50vw;
   align-self: center;
-  // font-size: 28px;
   width: 100%;
-  // flex: 1;
   align-items: center;
-  // height: 100%;
 }
 
 $hero-font-size: 36px;
 .App-hero {
-  flex: 2;
+  flex: 1.5;
   font-size: $hero-font-size;
   font-weight: bold;
   text-align: center;
@@ -101,8 +80,8 @@ $hero-font-size: 36px;
   justify-items: center;
   justify-content: center;
 }
-$hero-size-factor: 4px;
-.App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor*6; }
+$hero-size-factor: 5px;
+.App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor*8; }
 .App-hero-small { flex: 1; font-size: $hero-font-size - $hero-size-factor*4; font-weight: normal; }
 .App-input {
   background: linear-gradient(to right, #fff, #eee) 5px calc(100% + 0px)/calc(100% - 15px) 5px no-repeat;
@@ -122,9 +101,36 @@ $hero-size-factor: 4px;
 .username-span { margin-left: 12px }
 
 .Notes {
-  background: rgba(0,0,0,0.4);
-  margin-bottom: 128px;
-  line-height: 42px;
+  border-radius: 12px;
+  display: flex;
+  min-width: 100%;
+  max-height: 600px;
+  overflow: scroll;
+}
+
+.Note {
+  background: -webkit-linear-gradient(left, 
+    rgba(0,0,0,0.6) 0%,
+    rgba(0,0,0,0.2) 80%, 
+    rgba(0,0,0,0.0) 95%, 
+  );
+  min-width: 680px;
+  max-width: 680px;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: middle;
+  padding: 9px;
+  .Note-spacer { flex: 1; }
+  .Note-content { flex: 3; }
+  .Note-intent {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 70%;
+  }
 }
 
 .App-footer { font-size: calc(6px + 1vmin); padding: 12px }

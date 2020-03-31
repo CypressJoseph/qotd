@@ -43,16 +43,17 @@ export default class QuoteManager extends Component<Props, State> {
   }
   
   render() {
-    let quoteMeUp = this.state.status === 'displaying'
-      ? <QuoteBox quote={this.state.quote} />
-      : <QuoteMeUpButton
-        onInspire={() => this.handleClick()}
-        disabled={this.state.status !== 'unclicked'}
-      >
-        Inspire Me
-      </QuoteMeUpButton>;
-    return <div className='QuoteManager'>
-      {quoteMeUp}
-    </div>;
+    return <>old quote</>
+    // let quoteMeUp = this.state.status === 'displaying'
+    //   ? <QuoteBox quote={this.state.quote} />
+    //   : <QuoteMeUpButton
+    //     onInspire={() => this.handleClick()}
+    //     disabled={this.state.status !== 'unclicked'}
+    //   >
+    //     Inspire Me
+    //   </QuoteMeUpButton>;
+    // return <div className='QuoteManager'>
+    //   {quoteMeUp}
+    // </div>;
   }
 }

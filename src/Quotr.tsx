@@ -17,7 +17,7 @@ type QuotrProps = {
 
 function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer, startExpanded }: QuotrProps) {
     return <div className={classnames("Quotr", "App", `App-${partOfDay}`)}>
-        <Main><>
+        <Main>
             <Core
                 partOfDay={partOfDay}
                 dayOfWeek={dayOfWeek}
@@ -25,11 +25,9 @@ function Quotr({ partOfDay, dayOfWeek, quoteService, weatherService, footer, sta
                 weatherService={weatherService}
                 startExpanded={startExpanded}
             />
-        </></Main>
+        </Main>
         <footer className="App-footer">
             {footer}
-            <br/>
-            <p style={{ color: 'black' }}>quotr v0.0.1-alpaca-afternoon</p>
         </footer>
     </div>
 }
