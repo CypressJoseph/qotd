@@ -16,10 +16,10 @@ context('Given I am on the home page', () => {
     describe('When I look at the home page', () => {
         it('Then I see the current weather conditions', () => {
             cy.wait('@getWeather').then(() => {
-                cy.get('.App-note-weather')
+                cy.get("[data-test-id='weather']")
                     .should('exist')
                     .invoke('text')
-                    .should('equal', "It's currently charming outside.")
+                    .should('equal', "Forecast: charming.")
             })
         })
     })

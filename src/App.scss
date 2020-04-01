@@ -65,7 +65,7 @@ a {
   align-items: center;
 }
 
-$hero-font-size: 36px;
+$hero-font-size: 40px;
 .App-hero {
   flex: 1.5;
   font-size: $hero-font-size;
@@ -80,9 +80,9 @@ $hero-font-size: 36px;
   justify-items: center;
   justify-content: center;
 }
-$hero-size-factor: 5px;
-.App-hero-large { flex: 3; font-size: $hero-font-size + $hero-size-factor*8; }
-.App-hero-small { flex: 1; font-size: $hero-font-size - $hero-size-factor*4; font-weight: normal; }
+$hero-size-factor: 4px;
+.App-hero-large { flex: 3; font-size: 62px; }
+.App-hero-small { flex: 1; font-size: 28px; font-weight: normal; }
 .App-input {
   background: linear-gradient(to right, #fff, #eee) 5px calc(100% + 0px)/calc(100% - 15px) 5px no-repeat;
   padding: 10px;
@@ -101,31 +101,29 @@ $hero-size-factor: 5px;
 .username-span { margin-left: 12px }
 
 .Notes {
-  border-radius: 12px;
+  // border-radius: 12px;
+  flex: 0.4;
+  padding-top: 30px;
+  padding-bottom: 30px;
   display: flex;
   min-width: 100%;
-  max-height: 600px;
+  max-height: 400px;
   overflow: scroll;
+  background: rgba(0,0,0,0.6) 0%;
 }
 
 .Note {
-  background: -webkit-linear-gradient(left, 
-    rgba(0,0,0,0.6) 0%,
-    rgba(0,0,0,0.2) 80%, 
-    rgba(0,0,0,0.0) 95%, 
-  );
   min-width: 680px;
-  max-width: 680px;
   user-select: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: middle;
   padding: 9px;
-  .Note-spacer { flex: 1; }
+  .Note-spacer { flex: 2.4; }
   .Note-content { flex: 3; }
   .Note-intent {
-    flex: 1;
+    flex: 2.4;
     display: flex;
     flex-direction: row;
     align-items: center;

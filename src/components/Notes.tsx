@@ -1,23 +1,29 @@
-import React from 'react';
-import { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState, useEffect }  from 'react';
+// import { AnimatedList } from "react-animated-list";
 import { DayOfWeek, displayDayOfWeek } from "../services/Calendar";
 import { WeatherService } from "../services/Weather";
 import { QuoteService, Quote } from "../services/DailyQuotes";
 import Hero from "./Hero";
-// import { AnimatedList } from "react-animated-list";
 
 type NoteProps = {
     intent: string,
     children: ReactNode,
+    testId?: string,
     onClick: () => void,
 };
 
-type NoteData = { id: number, message: ReactNode, intent: string }
+type NoteData = {
+    id: number,
+    message: ReactNode,
+    intent: string,
+    testId: string,
+}
 
-export function Note({ intent, onClick, children }: NoteProps) {
+export function Note({ testId, intent, onClick, children }: NoteProps) {
     const [hover, setHover] = useState(false)
     return <div
         className="Note"
+        data-test-id={testId || 'uncategorized'}
         onClick={() => onClick()}
         onMouseOut={() => setHover(false)}
         onMouseOver={() => setHover(true)}>
@@ -37,60 +43,56 @@ type NotesProps = {
     quoteService: QuoteService,
 }
 
-export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
-    let inspiring =[
-        <>Don't forget your <b>towel</b></>,
-        <>Wash your <b>hands</b></>,
-        <>You're <b>doing great</b></>,
-        <>Onward.</>,
-        <>Remember to <b>breathe</b>.</>,
-        <>"I am calm."</>,
-        <>"I am peace."</>,
-    ]
+let inspiring =[
+    <>Don't forget your <b>towel</b></>,
+    <>Wash your <b>hands</b></>,
+    <>You're <b>doing great</b></>,
+    <>Onward.</>,
+    <>Remember to <b>breathe</b>.</>,
+    <>"I am calm."</>,
+    <>"I am peace."</>,
+]
 
-    let pithy = [
-        <><b>One step</b> at a time.</>,
-        <>Keep <b>moving forward</b>.</>,
-        <>Everything is <b>fine</b>.</>,
-        <><b>Deep breath</b>.</>,
-        <>Keep it up.</>,
-        <>You've <b>got this</b>.</>,
-        <>Keep <b>going</b>.</>,
-        <>Let's <b>execute</b>.</>,
-        <><i>Engage</i>.</>,
-    ]
+let pithy = [
+    <><b>One step</b> at a time.</>,
+    <>Keep <b>moving forward</b>.</>,
+    <>Everything is <b>fine</b>.</>,
+    <><b>Deep breath</b>.</>,
+    <>Keep it up.</>,
+    <>You've <b>got this</b>.</>,
+    <>Keep <b>going</b>.</>,
+    <>Let's <b>execute</b>.</>,
+    <><i>Engage</i>.</>,
+]
+
+export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
+    
     let [pithIndex, setPith] = useState(
         1 + Math.floor(Math.random() * pithy.length - 1)
     )
 
-    let [notes, setNotes] = useState([
+    let initialNotes: NoteData[] = [
         {
             id: -2,
             intent: 'Affirm',
+            testId: 'day-reminder',
             message: <span data-test-id="day-reminder">
                 It is <b>{displayDayOfWeek(dayOfWeek)}</b>.
           </span>
         },
-        // {
-        //     id: -1,
-        //     intent: 'Yep',
-        //     message: <span data-test-id="daily-affirmation">
-        //         All systems operational.
-        //   </span>
-        // },
-    ]);
+        {
+            id: -1,
+            intent: 'Yep',
+            testId: 'daily-affirmation',
+            message: <span data-test-id="daily-affirmation">
+                All systems operational.
+          </span>
+        },
+    ]
+    let [notes, setNotes] = useState(initialNotes);
     const notesWithout = (testNote: NoteData) => notes.filter(note =>
         note.id !== testNote.id
     )
-    // const addNote = (message: ReactNode) => setNotes([
-    //     ...notes,
-    //     {
-    //         id: notes.length+1,
-    //         intent: 'Acknowledge',
-    //         message: <>{message}</>
-    //     }
-    // ])
-
 
     useEffect(() => {
         async function getPosition() {
@@ -101,50 +103,52 @@ export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
 
         async function lookupWeather() {
             let position: any = await getPosition();
-            // navigator.geolocation.getCurrentPosition(async (pos) => {
             let { coords } = position;
             let theWeather = await weatherService.lookOutside(coords.latitude, coords.longitude)
             let currentConditions = (theWeather.summary);
             return <>Forecast: <b>{currentConditions}</b>.</>;
-            // })
-            // return <>Forecast: Unknown</>;
         };
 
-        async function lookupQuote() {
-            let quotes: Quote[] = await quoteService.quotes();
-            let quote: Quote = quotes[0]
-            console.log("GOT QUOTE", quote)
-            return <><i>{quote.message}</i> -{quote.author}</>;
-                // }
-            // ])
-        }
+        // async function lookupQuote() {
+        //     let quotes: Quote[] = await quoteService.quotes();
+        //     let quote: Quote = quotes[0]
+        //     console.log("GOT QUOTE", quote)
+        //     return <><i>{quote.message}</i> -{quote.author}</>;
+        // }
 
         async function lookups() {
-            let notesToAdd: ReactNode[] = []
-            notesToAdd.push(await lookupQuote());
-            notesToAdd.push(await lookupWeather());
+            // let notesToAdd: ReactNode[] = []
+            // notesToAdd.push(await lookupQuote());
+            let weather = await lookupWeather();
             setNotes([
                 ...notes,
-                ...(notesToAdd.map((message, index) => {
-                    return {
-                        id: notes.length + 1 + index,
+                // ...(notesToAdd.map((message, index) => {
+                    {
+                        id: notes.length + 1,
                         intent: 'Acknowledge',
-                        message: <>{message}</>
+                        message: weather, //<>{weather}</>,
+                        testId: 'weather',
                     }
-                }))
-        ])
+                    // return note
+                // }))
+            ])
+        // ])
             // notesToAdd.each(note => addNote(note));
         }
 
         lookups();
     }, []) //quoteService, notes, setNotes])
 
-    const loadPith = () => {
-        setNotes([...notes, {
-            id: notes.length + 1, intent: 'Thank u', message: inspiring[
+    const loadInspiration = () => {
+        let inspiringNote: NoteData = {
+            id: notes.length + 1,
+            intent: '🙏',
+            testId: 'quote',
+            message: inspiring[
                 1 + Math.floor(Math.random() * inspiring.length - 1)
             ]
-        }])
+        }
+        setNotes([ ...notes, inspiringNote ])
     }
 
     return <>
@@ -162,6 +166,7 @@ export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
                 > */}
                     {notes.map(note => <Note
                         key={note.id}
+                        testId={note.testId}
                         onClick={() => setNotes(notesWithout(note))}
                         intent={note.intent}>
                         {note.message}
@@ -172,7 +177,7 @@ export function Notes({ dayOfWeek, weatherService, quoteService }: NotesProps) {
         </Hero>
 
         <br /><br />
-        <button className="btn btn-primary" onClick={loadPith}>
+        <button id='inspire-me' className="btn btn-primary" onClick={loadInspiration}>
             Inspire Me!
         </button>
     </>
