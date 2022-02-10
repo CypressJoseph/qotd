@@ -48,6 +48,6 @@
     "@types/classnames": "^2.2.10",
     "cypress": "^4.2.0",
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
