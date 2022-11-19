@@ -18,7 +18,7 @@
     "react-animated-list": "^0.1.4",
     "react-dom": "^16.13.0",
     "react-geolocated": "^3.0.1",
-    "react-scripts": "3.4.0",
+    "react-scripts": "5.0.1",
     "react-spring": "^8.0.27",
     "typescript": "^3.8.3"
   },
